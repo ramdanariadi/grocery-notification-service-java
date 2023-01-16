@@ -1,5 +1,7 @@
 package id.tunas.grocery.notification.email;
 
+import io.vertx.core.json.JsonObject;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -18,8 +20,8 @@ public class EmailController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response requestSendEmail() {
-        emailService.requestSendEmail();
+    public Response requestSendEmail(JsonObject body) {
+        emailService.requestSendEmail(body);
         return Response.ok().entity(Map.of()).build();
     }
 }
